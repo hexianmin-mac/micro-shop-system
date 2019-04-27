@@ -5,7 +5,7 @@
 <mapper namespace="org.hxm.microsys.core.dao.UserDao">
 
     <select id="findUserById" resultType="org.hxm.microsys.core.entity.User" parameterType="int">
-        SELECT * FROM user WHERE id = #{id}
+        SELECT * FROM user WHERE userId = #{id}
     </select>
 
 </mapper>
