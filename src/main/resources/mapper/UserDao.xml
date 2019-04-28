@@ -4,18 +4,22 @@
 <!-- 设置为IUserDao接口方法提供sql语句配置 -->
 <mapper namespace="org.hxm.microsys.core.dao.UserDao">
 
-    <select id="findUserById" resultType="org.hxm.microsys.core.entity.User" parameterType="int">
+    <select id="findUserById" resultType="User" parameterType="int">
         SELECT * FROM user WHERE userId = #{id}
     </select>
 
 
-    <select id="login" resultType="org.hxm.microsys.core.entity.SysUser">
+    <select id="login" resultType="SysUser">
         select * from sys_user where sysUName = #{name} and password=#{password}
     </select>
 
 
-    <select id="getAllUser" resultType="org.hxm.microsys.core.entity.User">
+    <select id="getAllUser" resultType="User">
         select * from user order by userId asc
+    </select>
+
+    <select id="findUserByName" resultType="User">
+        select * from user where  userName like "%"#{name}"%"
     </select>
 
 

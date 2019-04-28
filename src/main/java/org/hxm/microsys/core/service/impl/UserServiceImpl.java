@@ -13,9 +13,11 @@ import java.util.List;
 public class UserServiceImpl implements IUserService {
     @Resource
     private UserDao userDao;
+
+
     @Override
-    public User findUserById(int id) {
-        return userDao.findUserById(id);
+    public List<User> findUserByName(String name) {
+        return userDao.findUserByName(name);
     }
 
     @Override
@@ -26,5 +28,10 @@ public class UserServiceImpl implements IUserService {
     @Override
     public List<User> findAllUser() {
         return userDao.getAllUser();
+    }
+
+    @Override
+    public User findUserById(int id) {
+        return userDao.findUserById(id);
     }
 }

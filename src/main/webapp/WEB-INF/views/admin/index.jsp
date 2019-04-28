@@ -126,11 +126,11 @@
             <a href="tjyh" class="fr top_rt_btn add_icon">添加新客户</a>
         </div>
         <section class="mtb">
-            <form action="sy" method="post">
+            <form action="likeUser" method="post">
 
                 <input type="text" name="name" id="name" class="textbox textbox_225"
-                       placeholder="输入用户账号"/> <input type="submit"
-                                                     value="查询" class="group_btn"/>
+                       placeholder="输入用户账号"/>
+                <input type="submit" value="查询" class="group_btn"/>
             </form>
         </section>
         <table class="table">
@@ -189,9 +189,9 @@
                         <%--<a title="未验证" class="link_icon">&#88;</a>--%>
                         <%--</c:if></td>--%>
                     <td class="center">
-                        <a href="tzup?id=${user.userId}" title="编辑" class="link_icon">&#101;
+                        <a href="/user/forwardEdit?userId=${user.userId}" title="编辑" class="link_icon">&#101;
                         </a>
-                        <a href="delete?id=${user.userId}" title="删除" class="link_icon">&#100;
+                        <a href="delete?userId=${user.userId}" title="删除" class="link_icon">&#100;
                         </a>
                     </td>
 

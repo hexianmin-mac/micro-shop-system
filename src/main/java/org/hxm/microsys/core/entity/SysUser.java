@@ -2,9 +2,11 @@ package org.hxm.microsys.core.entity;
 
 import lombok.Getter;
 import lombok.ToString;
+import org.apache.ibatis.type.Alias;
 
 @Getter
 @ToString
+@Alias("SysUser")
 public class SysUser {
     private int sysUid;
     private String sysUName;
