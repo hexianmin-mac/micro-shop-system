@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>舒涵的店 系统登录</title>
+<title>舒涵的店の精品美妆 系统登录</title>
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/moban/css/index.css" />
 <link rel="stylesheet" type="text/css"
@@ -94,7 +94,7 @@
 		<div id="wrapper">
 			<div id="login" class="animate form">
 
-				<h1>舒涵的店-精品美妆</h1>
+				<h1>舒涵的店の精品美妆</h1>
 				<p>
 					<label for="username" class="uname" data-icon="u">您的账户名</label> <input
 						id="username" name="username" required="required" type="text"
@@ -122,9 +122,9 @@
 				<p class="login button">
 					<input type="submit" value="登录" onclick="validate()" />
 				</p>
-				<p class="change_link">
-					不是成员?<a href="#toregister" class="to_register">加入我们</a>
-				</p>
+<%--				<p class="change_link">--%>
+<%--					不是成员?<a href="#toregister" class="to_register">加入我们</a>--%>
+<%--				</p>--%>
 
 			</div>
 
