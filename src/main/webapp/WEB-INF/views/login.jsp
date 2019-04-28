@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>营销系统登录</title>
+<title>舒涵的店 系统登录</title>
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/moban/css/index.css" />
 <link rel="stylesheet" type="text/css"
@@ -68,15 +68,17 @@
 				alert("登录失败,请与管理员联系!")
 			},
 			success : function(data) {
-				var suc = data.succ;
+				var suc = data.result;
 
-				if (suc == "false") {
+				if (suc == "error") {
 					alert("登录失败，请确认用户名与密码");
-				}else if(suc == "no_auth"){
-					alert("状态不可用，请联系管理员");	
-				}else {
+				}else if(suc == "frozen"){
+					alert("账号被冻结，请联系管理员");
+				} else if (suc == "denied") {
+                    alert("没有权限，请联系管理员");
+				} else {
 					alert("登录成功")
-					window.location.href = "user/sy.do";
+					window.location.href = "user/homePage.do";
 				}
 			}
 		});
@@ -92,7 +94,7 @@
 		<div id="wrapper">
 			<div id="login" class="animate form">
 
-				<h1>库存ERP进销存系统</h1>
+				<h1>舒涵的店-精品美妆</h1>
 				<p>
 					<label for="username" class="uname" data-icon="u">您的账户名</label> <input
 						id="username" name="username" required="required" type="text"

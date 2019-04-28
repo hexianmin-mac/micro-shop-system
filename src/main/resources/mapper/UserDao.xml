@@ -8,4 +8,15 @@
         SELECT * FROM user WHERE userId = #{id}
     </select>
 
+
+    <select id="login" resultType="org.hxm.microsys.core.entity.SysUser">
+        select * from sys_user where sysUName = #{name} and password=#{password}
+    </select>
+
+
+    <select id="getAllUser" resultType="org.hxm.microsys.core.entity.User">
+        select * from user order by userId asc
+    </select>
+
+
 </mapper>

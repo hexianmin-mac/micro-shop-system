@@ -67,10 +67,10 @@
 					<dt>用户管理</dt>
 					<!--当前链接则添加-->
 					<dd>
-						<a href="sy" >用户列表</a>
+						<a href="/user/homePage" >用户列表</a>
 					</dd>
 					<dd>
-						<a href="tjyh" class="active">添加用户</a>
+						<a href="/user/forwardUpdate" class="active">添加用户</a>
 					</dd>
 				</dl>
 			</li>
