@@ -4,13 +4,14 @@ import net.sf.json.JSONObject;
 import org.hxm.microsys.core.entity.SysUser;
 import org.hxm.microsys.core.entity.User;
 import org.hxm.microsys.core.service.IUserService;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,10 +23,14 @@ public class UserController {
     private IUserService userService;
 
 
+    @RequestMapping("forwardLogin")
+    public String forwardLogin(){
+        return "login";
+    }
 
     // 登录验证
     @ResponseBody
-    @RequestMapping("login")
+    @RequestMapping("userLogin")
     public String login(HttpSession session, String requestDate) {
         Map<String,String> resultMap = new HashMap<>();
         JSONObject requestJson = JSONObject.fromObject(requestDate);
@@ -52,8 +57,8 @@ public class UserController {
     }
 
 
-    @RequestMapping("homePage")
-    public String homePage(User u,HttpSession session,Model model) {
+    @RequestMapping("showAll")
+    public String homePage(HttpSession session,Model model) {
         SysUser user = (SysUser) session.getAttribute("sysUser");
         int type = user.getType();
         if (type == 0) {
@@ -84,9 +89,11 @@ public class UserController {
         return "admin/editUser";
     }
 
-    @RequestMapping("updateUser")
-    public String updateUser(User user) {
-        return "admin/index";
+    @RequestMapping(value = "updateUser",method = RequestMethod.POST)
+    public String updateUser(User user, Model model,HttpServletRequest request) {
+        userService.insertOrUpdateUser(user);
+        model.addAttribute("userList", Arrays.asList(user));
+        return "redirect:showAll";
     }
 
 

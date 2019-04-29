@@ -13,5 +13,5 @@ public interface UserDao {
     //查询所有用户
     List<User> getAllUser();
     User findUserById(@Param("id") int id);
-    int updateUser(@Param("user") User user);
+    int insertOrUpdateUser(@Param("user") User user);
 }

@@ -22,5 +22,15 @@
         select * from user where  userName like "%"#{name}"%"
     </select>
 
+    <!-- 更新用户信息 -->
+    <update id="insertOrUpdateUser" parameterType="User" >
+	    insert into user
+        (userId,userName,sex,age,phone,address,type,status)
+        values
+        (#{user.userId},#{user.userName},#{user.sex},#{user.age},#{user.phone},#{user.address},#{user.type},#{user.status})
+        ON DUPLICATE KEY UPDATE
+        userName = VALUES(userName),sex=VALUES(sex),age=VALUES(age),phone=VALUES(phone),address=VALUES(address),type=VALUES(type),status=VALUES(status)
+
+	</update>
 
 </mapper>

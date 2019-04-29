@@ -121,16 +121,16 @@
 
 
 <section class="rt_wrap content mCustomScrollbar">
-    <form action="updateUser" method="post">
+    <form action="/user/updateUser" method="post">
         <div class="rt_content">
-            <input type="hidden" name="id" value="${user.userId}">
+            <input type="hidden" name="userId" value="${user.userId}">
             <div class="page_title">
                 <h2 class="fl">请输入用户信息</h2>
             </div>
             <ul class="ulColumn2">
                 <li>
                     <span class="item_name" style="width:120px;">用户账号：</span>
-                    <input type="text" name="name" value="${user.userName }" class="textbox textbox_225"
+                    <input type="text" name="userName" value="${user.userName }" class="textbox textbox_225"
                            placeholder="用户账号..."/>
 
                 </li>
@@ -147,7 +147,7 @@
                 </li>
                 <li>
                     <span class="item_name" style="width:120px;">年龄：</span>
-                    <input type="text" name="year" value="${user.age }" class="textbox textbox_225"
+                    <input type="text" name="age" value="${user.age }" class="textbox textbox_225"
                            placeholder="年龄..."/>
                 </li>
                 <li>
@@ -163,11 +163,11 @@
                 <li>
                 <li>
                     <span class="item_name" style="width:120px;" name="t1">角色分配：</span>
-                    <select class="select" name="t1">
-                        <option value="0" name="t1"
+                    <select class="select" name="type">
+                        <option value="0" name="type"
                                 <c:if test="${user.type == 0}">selected</c:if> >客户
                         </option>
-                        <option value="1" name="t1"
+                        <option value="1" name="type"
                                 <c:if test="${user.type == 1}">selected</c:if> >代理
                         </option>
                     </select>

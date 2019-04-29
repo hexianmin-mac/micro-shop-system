@@ -11,4 +11,5 @@ public interface IUserService {
     SysUser login(String name,String password);
     List<User> findAllUser();
     User findUserById(int id);
+    int insertOrUpdateUser(User user);
 }

@@ -1,9 +1,11 @@
 package org.hxm.microsys.core.entity;
 
 import lombok.Getter;
+import lombok.Setter;
 import org.apache.ibatis.type.Alias;
 
 @Getter
+@Setter
 @Alias("User")
 public class User {
     private int userId;

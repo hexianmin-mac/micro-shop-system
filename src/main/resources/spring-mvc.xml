@@ -8,7 +8,7 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/mvc
-       http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+       http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 
     <!--&lt;!&ndash;SpringMVC的配置，包含网站跳转逻辑的控制配置&ndash;&gt;-->
     <!--<context:component-scan base-package="org.hxm.microsys" use-default-filters="false">-->
@@ -46,6 +46,17 @@
 
     <!-- 静态资源默认servlet配置 -->
     <mvc:default-servlet-handler/>
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**" />
+            <mvc:exclude-mapping path="/user/userLogin"/>
+            <mvc:exclude-mapping path="/user/forwardLogin"/>
+            <bean class="org.hxm.microsys.util.MyInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+
 
     <!-- 配置jsp 显示ViewResolver -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

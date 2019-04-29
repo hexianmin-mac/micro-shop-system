@@ -59,7 +59,7 @@
 			type : "get",
 			dataType : 'json',//默认转化对象
 			async : true,
-			url : "user/login", //提交到一般处理程序请求数据
+			url : "user/userLogin", //提交到一般处理程序请求数据
 
 			data : {
 				"requestDate" : str
@@ -78,7 +78,7 @@
                     alert("没有权限，请联系管理员");
 				} else {
 					alert("登录成功")
-					window.location.href = "user/homePage.do";
+					window.location.href = "user/showAll";
 				}
 			}
 		});

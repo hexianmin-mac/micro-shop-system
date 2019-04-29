@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 设置为IUserDao接口方法提供sql语句配置 -->
+<mapper namespace="org.hxm.microsys.core.dao.OrderDao">
+
+    <select id="getOrderByUserId" resultType="OrderInfo" parameterType="int">
+        SELECT * FROM order_info WHERE userId = #{userId}
+    </select>
+
+
+    <select id="getAllOrderInfo" resultType="OrderInfo">
+        select * from order_info order by userId asc
+    </select>
+
+    <!--<select id="findUserByName" resultType="User">-->
+    <!--select * from user where  userName like "%"#{name}"%"-->
+    <!--</select>-->
+
+    <!--&lt;!&ndash; 更新用户信息 &ndash;&gt;-->
+    <insert id="insertOrUpdate" parameterType="OrderInfo">
+        insert into order_info
+        (userId,inPrice,outPrice,fastNumber,date)
+        values
+        (#{orderInfo.userId},#{orderInfo.inPrice},#{orderInfo.outPrice},#{orderInfo.fastNumber},#{orderInfo.date})
+        ON DUPLICATE KEY UPDATE
+        inPrice = VALUES(inPrice),outPrice=VALUES(outPrice),fastNumber=VALUES(fastNumber)
+
+    </insert>
+
+</mapper>

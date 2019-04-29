@@ -103,6 +103,21 @@
     <url-pattern>/</url-pattern>
   </servlet-mapping>
 
+  <session-config>
+    <session-timeout>1</session-timeout>
+  </session-config>
+
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>*.js</url-pattern>
+    <url-pattern>*.css</url-pattern>
+    <url-pattern>/assets/*</url-pattern>
+    <url-pattern>/fonts/*</url-pattern>
+    <url-pattern>/moban/*</url-pattern>
+    <url-pattern>/shopimage/*</url-pattern>
+    <url-pattern>/images/*</url-pattern>
+  </servlet-mapping>
+
   <welcome-file-list>
     <welcome-file>/WEB-INF/views/login.jsp</welcome-file>
   </welcome-file-list>
